@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Login Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .container { background: #f5f5f5; padding: 20px; border-radius: 8px; }
+        .btn { display: inline-block; padding: 10px 20px; margin: 5px; color: white; text-decoration: none; border-radius: 4px; }
+        .btn.primary { background: #007bff; }
+        .btn.google { background: #db4437; }
+        .btn.logout { background: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Google Login Demo</h1>
+        <% if (isAuthenticated) { %>
+            <h2>Welcome! You are logged in.</h2>
+            <p><strong>Email:</strong> <%= userInfo.email %></p>
+            <div style="margin: 20px 0;">
+                <a href="/dashboard" class="btn primary">📊 Go to Dashboard</a>
+                <a href="/logout" class="btn logout">🚪 Logout</a>
+            </div>
+        <% } else { %>
+            <h2>Please log in with Google</h2>
+            <div style="margin: 20px 0;">
+                <a href="/login" class="btn primary">Login with Google</a>
+                <a href="/login/google" class="btn google">Direct Google Login</a>
+            </div>
+            <div style="margin-top: 30px; padding: 15px; background: #e9ecef; border-radius: 4px;">
+                <h3>API Testing:</h3>
+                <p><a href="/health">Health Check</a> | <a href="/api/auth/urls">Get Google URL</a></p>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>

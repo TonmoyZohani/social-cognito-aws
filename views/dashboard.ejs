@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Social Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .user-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin: 20px 0; }
+        .btn { display: inline-block; padding: 10px 20px; margin: 5px; color: white; text-decoration: none; border-radius: 4px; }
+        .btn.primary { background: #007bff; }
+        .btn.home { background: #6c757d; }
+        .btn.logout { background: #dc3545; }
+        pre { background: #f8f9fa; padding: 15px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>📊 Dashboard</h1>
+    
+    <div class="user-card">
+        <h2>Welcome, <%= userInfo.name || userInfo.email %>! 👋</h2>
+        <p><strong>Email:</strong> <%= userInfo.email %></p>
+        <% if (userInfo.email_verified) { %>
+            <p><strong>Status:</strong> ✅ Email Verified</p>
+        <% } %>
+        <p><strong>User ID:</strong> <%= userInfo.sub %></p>
+    </div>
+
+    <h3>Full User Information:</h3>
+    <pre><%= JSON.stringify(userInfo, null, 2) %></pre>
+
+    <div style="margin-top: 30px;">
+        <a href="/" class="btn home">🏠 Home</a>
+        <a href="/logout" class="btn logout">🚪 Logout</a>
+    </div>
+</body>
+</html>
