@@ -6,27 +6,22 @@ import pageRoutes from './routes/pages';
 import apiRoutes from './routes/api';
 import dotenv from 'dotenv';
 
-// Load environment variables
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Initialize Cognito client
 initializeCognitoClient().catch(console.error);
 
-// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(sessionMiddleware);
 
-// Set view engine
 app.set('view engine', 'ejs');
 
-// Routes - CORRECT MOUNTING
-app.use('/', pageRoutes);        // Handles: /, /login, /dashboard, /logout
-app.use('/auth', authRoutes);    // Handles: /auth/google, /auth/login/google, /auth/callback
-app.use('/api', apiRoutes);      // Handles: /api/*
+app.use('/', pageRoutes);       
+app.use('/auth', authRoutes);    
+app.use('/api', apiRoutes);      
 
 // Start server
 app.listen(PORT, () => {

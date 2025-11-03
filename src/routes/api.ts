@@ -6,7 +6,6 @@ import { checkAuth } from '../middleware/auth';
 
 const router = Router();
 
-// Get user info API
 router.get('/user', checkAuth, (req, res) => {
   const authReq = req as AuthRequest;
   if (!authReq.isAuthenticated) {
@@ -16,7 +15,7 @@ router.get('/user', checkAuth, (req, res) => {
   res.json({ user: authReq.session.userInfo });
 });
 
-// Get Google URL API
+
 router.get('/auth/urls', (req, res) => {
   const authReq = req as AuthRequest;
   const nonce = generators.nonce();
@@ -35,7 +34,7 @@ router.get('/auth/urls', (req, res) => {
   res.json({ google: googleUrl });
 });
 
-// Health check
+
 router.get('/health', (req, res) => {
   res.json({
     status: 'OK',

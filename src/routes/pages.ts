@@ -6,7 +6,6 @@ import { getClient } from '../config/cognitoClient';
 
 const router = Router();
 
-// Home page
 router.get('/', checkAuth, (req, res) => {
   const authReq = req as AuthRequest;
   res.render('home', {
@@ -15,12 +14,10 @@ router.get('/', checkAuth, (req, res) => {
   });
 });
 
-// Login page
 router.get('/login', (req, res) => {
   res.render('login', { error: req.query.error });
 });
 
-// Google Login - ADD THIS ROUTE
 router.get('/login/google', (req, res) => {
   const authReq = req as AuthRequest;
   const nonce = generators.nonce();
@@ -40,7 +37,6 @@ router.get('/login/google', (req, res) => {
   res.redirect(authUrl);
 });
 
-// Dashboard (protected)
 router.get('/dashboard', requireAuth, checkAuth, (req, res) => {
   const authReq = req as AuthRequest;
   res.render('dashboard', {
@@ -48,7 +44,6 @@ router.get('/dashboard', requireAuth, checkAuth, (req, res) => {
   });
 });
 
-// Logout route
 router.get('/logout', (req, res) => {
   const authReq = req as AuthRequest;
   

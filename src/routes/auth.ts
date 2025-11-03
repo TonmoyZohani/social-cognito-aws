@@ -5,7 +5,6 @@ import { AuthRequest } from "../types/express";
 
 const router = Router();
 
-// ADD THIS ROUTE - handles /auth/login/google
 router.get("/login/google", (req, res) => {
   const authReq = req as AuthRequest;
   const nonce = generators.nonce();
@@ -25,7 +24,7 @@ router.get("/login/google", (req, res) => {
   res.redirect(authUrl);
 });
 
-// Google Login (alternative path)
+
 router.get("/google", (req, res) => {
   const authReq = req as AuthRequest;
   const nonce = generators.nonce();
@@ -45,7 +44,7 @@ router.get("/google", (req, res) => {
   res.redirect(authUrl);
 });
 
-// Callback handler
+
 router.get("/callback", async (req, res) => {
   try {
     const authReq = req as AuthRequest;
