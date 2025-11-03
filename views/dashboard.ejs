@@ -13,13 +13,13 @@
     </style>
 </head>
 <body>
-    <h1>📊 Dashboard</h1>
+    <h1>Dashboard</h1>
     
     <div class="user-card">
-        <h2>Welcome, <%= userInfo.name || userInfo.email %>! 👋</h2>
+        <h2>Welcome, <%= userInfo.name || userInfo.email %>! </h2>
         <p><strong>Email:</strong> <%= userInfo.email %></p>
         <% if (userInfo.email_verified) { %>
-            <p><strong>Status:</strong> ✅ Email Verified</p>
+            <p><strong>Status:</strong> Email Verified</p>
         <% } %>
         <p><strong>User ID:</strong> <%= userInfo.sub %></p>
     </div>
@@ -28,8 +28,8 @@
     <pre><%= JSON.stringify(userInfo, null, 2) %></pre>
 
     <div style="margin-top: 30px;">
-        <a href="/" class="btn home">🏠 Home</a>
-        <a href="/logout" class="btn logout">🚪 Logout</a>
+        <a href="/" class="btn home">Home</a>
+        <a href="/logout" class="btn logout">Logout</a>
     </div>
 </body>
 </html>

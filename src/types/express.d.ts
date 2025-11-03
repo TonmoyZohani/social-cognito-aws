@@ -3,7 +3,7 @@ import 'express-session';
 
 declare module 'express-session' {
   interface SessionData {
-    userInfo?: any; 
+    userInfo?: any;
     nonce?: string;
     state?: string;
   }
@@ -19,4 +19,9 @@ declare global {
 
 export interface AuthRequest extends Express.Request {
   isAuthenticated: boolean;
+  session: Express.Session & {
+    userInfo?: any;
+    nonce?: string;
+    state?: string;
+  };
 }

@@ -18,19 +18,19 @@
             <h2>Welcome! You are logged in.</h2>
             <p><strong>Email:</strong> <%= userInfo.email %></p>
             <div style="margin: 20px 0;">
-                <a href="/dashboard" class="btn primary">📊 Go to Dashboard</a>
-                <a href="/logout" class="btn logout">🚪 Logout</a>
+                <a href="/dashboard" class="btn primary">Go to Dashboard</a>
+                <a href="/logout" class="btn logout">Logout</a>
             </div>
         <% } else { %>
             <h2>Please log in with Google</h2>
             <div style="margin: 20px 0;">
                 <a href="/login" class="btn primary">Login with Google</a>
-                <a href="/login/google" class="btn google">Direct Google Login</a>
+                <a href="/auth/google" class="btn google">Direct Google Login</a>
             </div>
-            <div style="margin-top: 30px; padding: 15px; background: #e9ecef; border-radius: 4px;">
+            <!-- <div style="margin-top: 30px; padding: 15px; background: #e9ecef; border-radius: 4px;">
                 <h3>API Testing:</h3>
                 <p><a href="/health">Health Check</a> | <a href="/api/auth/urls">Get Google URL</a></p>
-            </div>
+            </div> -->
         <% } %>
     </div>
 </body>
