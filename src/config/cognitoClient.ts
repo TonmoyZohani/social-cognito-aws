@@ -3,9 +3,7 @@ import { Issuer, Client } from 'openid-client';
 let client: Client;
 
 export async function initializeCognitoClient(): Promise<Client> {
-  try {
-    console.log('Discovering Cognito issuer...');
-    
+  try {    
     const issuerUrl = `https://cognito-idp.${process.env.AWS_REGION}.amazonaws.com/${process.env.COGNITO_USER_POOL_ID}`;
     const issuer = await Issuer.discover(issuerUrl);
 
