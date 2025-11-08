@@ -4,7 +4,7 @@ let client: Client;
 
 export async function initializeCognitoClient(): Promise<Client> {
   try {
-    console.log('🔍 Discovering Cognito issuer...');
+    console.log('Discovering Cognito issuer...');
     
     const issuerUrl = `https://cognito-idp.${process.env.AWS_REGION}.amazonaws.com/${process.env.COGNITO_USER_POOL_ID}`;
     const issuer = await Issuer.discover(issuerUrl);
@@ -16,10 +16,10 @@ export async function initializeCognitoClient(): Promise<Client> {
       response_types: ['code'],
     });
 
-    console.log('✅ OIDC Client initialized successfully');
+    console.log('OIDC Client initialized successfully');
     return client;
   } catch (error) {
-    console.error('❌ Failed to initialize OIDC client:', error);
+    console.error(' Failed to initialize OIDC client:', error);
     throw error;
   }
 }

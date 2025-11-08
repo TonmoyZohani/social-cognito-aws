@@ -33,7 +33,7 @@ router.get('/login/google', (req, res) => {
     identity_provider: 'Google',
   });
 
-  console.log('🔗 Google Login URL:', authUrl);
+  console.log('Google Login URL:', authUrl);
   res.redirect(authUrl);
 });
 

@@ -20,7 +20,7 @@ router.get("/login/google", (req, res) => {
     identity_provider: "Google",
   });
 
-  console.log("🔗 Google Login URL:", authUrl);
+  console.log("Google Login URL:", authUrl);
   res.redirect(authUrl);
 });
 
@@ -40,7 +40,7 @@ router.get("/google", (req, res) => {
     identity_provider: "Google",
   });
 
-  console.log("🔗 Google Login URL:", authUrl);
+  console.log("Google Login URL:", authUrl);
   res.redirect(authUrl);
 });
 
@@ -59,10 +59,10 @@ router.get("/callback", async (req, res) => {
     const userInfo = await client.userinfo(tokenSet.access_token!);
     authReq.session.userInfo = userInfo;
 
-    console.log("✅ User authenticated:", userInfo.email);
+    console.log("User authenticated:", userInfo.email);
     res.redirect("/dashboard");
   } catch (error) {
-    console.error("❌ Authentication error:", error);
+    console.error("Authentication error:", error);
     res.redirect("/login?error=auth_failed");
   }
 });
